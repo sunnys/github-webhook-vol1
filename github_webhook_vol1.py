@@ -1,10 +1,10 @@
 from github_webhook import Webhook
 from flask import Flask
 
-app = Flask(__name__)  # Standard Flask app
-webhook = Webhook(app) # Defines '/postreceive' endpoint
+application = Flask(__name__)  # Standard Flask application
+webhook = Webhook(application) # Defines '/postreceive' endpoint
 
-@app.route("/")        # Standard Flask endpoint
+@application.route("/")        # Standard Flask endpoint
 def hello_world():
     return "Hello, World!"
 
@@ -13,4 +13,4 @@ def on_push(data):
     print("Got push with: {0}".format(data))
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=3000)
+    application.run(host="0.0.0.0", port=3000)
